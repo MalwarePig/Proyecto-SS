@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="shortcut icon" href="/icon/UANL.ico" type="image/x-icon">
+    <link rel="icon" href="/icon/UANL.ico" type="image/x-icon">
+    <title>
+        FCFM
+    </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--======================================================  USO PARA EL ENORME MODAL ============================================================ -->
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+    <!--======================================================  USO PARA EL ENORME MODAL ============================================================ -->
+    <!-- iconos -->
+    <script src="https://kit.fontawesome.com/86322b1947.js" crossorigin="anonymous"></script>
+    <!-- Barra -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600,800,900" rel="stylesheet" type="text/css">
+    <!------incluir cabezera navegacion----->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="js/Encuestas/MenuEncuestas.js"></script>
+    <!------ JQUERY PARA USAR AJAX ----->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <!-- css -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body onload="ListaEncuestas()">
+    <%- include ('../partials/TipoMenu.html') %>
+    <div class="card text-center">
+        <div class="card-header">
+            <!------------------------------ BUSCAR -------------------------------------->
+            <div class="form-row">
+                <div class="form-group col-md-12 p-0">
+                    <a href="/CrearEncuesta" class="btn btn-secondary btn-lg" role="button" aria-disabled="true">Crear Encuesta</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <!------ Colapso ----->
+    <div class="SpaceWork" id="accordion"></div>
+
+    <div id="Oculta" style="display: none">
+        <!------ =================================================== KITS ========================================================== ----->
+        <div class="card container-fluid shadow-lg p-3 mb-5 bg-dark rounded" style="width:96%; ; height:350px;"
+            id="cardPrincial">
+            <div class="card" style=" background-color:rgb( 241, 239, 252 );">
+                <div class="card-header" id="BtnPrincipal" data="ss">
+                    <div class="form-row">
+                        <div class="form-group col-md-1">
+                            <label for="inputAddress" class="font-weight-bold">Clave</label>
+                            <input type="text" id="Clave" class="form-control text-dark" name="Clave" readonly>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="inputAddress" class="font-weight-bold">Autor</label>
+                            <input type="text" id="Autor" class="form-control text-dark" name="Autor" readonly>
+                        </div>
+
+                        <div class="form-group col-md-1">
+                            <label for="inputAddress" class="font-weight-bold">Estatus</label>
+                            <input type="text" id="Estatus" class="form-control text-dark" name="Estatus" readonly>
+                        </div>
+
+                        <div class="form-group col-md-5">
+                            <label for="inputAddress" class="font-weight-bold">Descripción</label>
+                            <input type="text" id="Descripcion" class="form-control text-dark" name="Descripcion" readonly>
+                        </div>
+
+                        <div class="form-group col-md-1">
+                            <label for="inputAddress" class="font-weight-bold">Fecha</label>
+                            <input type="text" id="Fecha" class="form-control text-dark" name="Fecha" readonly>
+                        </div>
+
+                        <div class="form-group col-md-1">
+                            <label for="inputAddress" class="font-weight-bold">Cancelar</label>
+                            <button type="button" id="Cancelar" name="Cancelar" class="btn btn-secondary"
+                        onclick="">      </button>
+                        </div>
+                    </div>
+
+                </div>
+                <div id="collapsePrincipal" class="collapse bg-light" aria-labelledby="headingTwo">
+                    <div class="card-body">
+                        <!------ =============================================== COMPONENTES ====================================================== ----->
+                        <!------ Colapso ----->
+                        <div id="AccordionSub"></div>
+                        <!------ =============================================== COMPONENTES ====================================================== ----->
+                    </div>
+                </div>
+            </div>
+            <br>
+        </div>
+
+
+        <!------ Componente 1 ----->
+        <div id="cardSub">
+            <br>
+            <div class="card">
+                <div class="card-header" id="Btn">
+                    <div class="form-row">
+                        <div class="form-group col-md-1">
+                            <label for="inputAddress" class="font-weight-bold">Clave</label>
+                            <input type="text" id="S_Clave" class="form-control text-dark" name="S_Clave" readonly>
+                        </div>
+
+                        <div class="form-group col-md-10">
+                            <label for="inputAddress" class="font-weight-bold">Pregunta</label>
+                            <input type="text" id="S_Pregunta" class="form-control text-dark" name="OT" readonly>
+                        </div>
+
+                        <div class="form-group col-md-1">
+                            <label for="inputAddress" class="font-weight-bold">Editar</label>
+                            <button type="button" id="S_Editar" name="Editar" class="btn btn-secondary">
+                        </div>
+ 
+                    </div>
+
+                </div>
+                
+            </div>
+
+        </div>
+
+        <!------ ====== oculto ===== ----->
+    </div>
+
+
+
+
+    <%- include ('../Encuestas/ModalNewEncuesta.html') %>
+
+
+
+</body>
+
+</html>

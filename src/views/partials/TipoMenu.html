@@ -1,0 +1,16 @@
+<div class="p-2 mb-1 bg-light text-dark">
+    <script>
+        let Nombre = localStorage.getItem('Mem_Nombre');
+        let Tipo = localStorage.getItem('Mem_Tipo');
+    </script>
+
+
+    <% console.log('Soy_ ' + data.Tipo) %>
+    <% if(data.Tipo == 'Administrador'){ %>
+    <%- include ('../partials/navegacionAdmin.html') %>
+    <% }else if(data.Tipo == 'Maestro'){ %>
+    <%- include ('../partials/navegacionMaestro.html') %>
+    <% }else{ %>
+    <%- include ('../partials/navegacionAlumno.html') %>
+    <% } %>
+</div>

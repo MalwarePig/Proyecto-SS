@@ -1,0 +1,13 @@
+*
+
+    <%- include ('partials/TipoMenu.html') %>
+
+
+<%= console.log('Soy: ' + localStorage.getItem('Mem_Nombre') %>
+<% if(data.Tipo == 'Administrador'){ %>
+<%- include ('../partials/navegacionAdmin.html') %>
+<% }else if(data.Tipo == 'Maestro'){ %>
+<%- include ('../partials/navegacionMaestro.html') %>
+<% }else{ %>
+<%- include ('../partials/navegacionAlumno.html') %>
+<% } %>
