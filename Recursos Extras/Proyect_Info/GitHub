@@ -17,3 +17,24 @@ git diff index.html (Muestra las cambios entre versiones)
 ================================= COMANDOS GIT DOWN ======================================
 Git clone link (Descargar el repositorio)
 git pull https://github.com/MalwarePig/SIGG >>(Obtiene actualizaciones en línea y las fusiona con tu trabajo local)
+
+
+
+
+
+
+
+
+echo "# Proyecto-ss" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/MalwarePig/Proyecto-ss.git
+git push -u origin main
+
+…or push an existing repository from the command line
+
+git remote add origin https://github.com/MalwarePig/Proyecto-ss.git
+git branch -M main
+git push -u origin main
